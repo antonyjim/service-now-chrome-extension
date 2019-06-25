@@ -1,0 +1,160 @@
+[
+    {
+        "el": "incident.contact_type",
+        "inputType": "select",
+        "options": [
+            {
+                "value": "",
+                "friendlyName": "-- None --"  
+            },
+            {
+                "value": "Chat",
+                "friendlyName": "Chat"  
+            },
+            {
+                "value": "email",
+                "friendlyName": "Email"  
+            },
+            {
+                "value": "phone",
+                "friendlyName": "Phone"  
+            },
+            {
+                "value": "self-service",
+                "friendlyName": "Self-Service"  
+            },
+            {
+                "value": "walk-in",
+                "friendlyName": "Walk-In"  
+            }
+        ]
+    },
+    {
+        "el": "incident.u_preferred_contact_method_caller",
+        "inputType": "select",
+        "options": [
+            {
+                "value": "",
+                "friendlyName": "-- None --"
+            },
+            {
+                "value": "chat",
+                "friendlyName": "Chat"
+            },
+            {
+                "value": "email",
+                "friendlyName": "Email"
+            },
+            {
+                "value": "phone",
+                "friendlyName": "Phone"
+            }
+        ]
+    },
+    {
+        "el": "incident.impact",
+        "inputType": "select",
+        "options": [
+            {
+                "value": "",
+                "friendlyName": "-- None --"
+            },
+            {
+                "value": "1",
+                "friendlyName": "1 - High"
+            },
+            {
+                "value": "2",
+                "friendlyName": "2 - Medium"
+            },
+            {
+                "value": "3",
+                "friendlyName": "3 - Low"
+            }
+        ]
+    },
+    {
+        "el": "incident.urgency",
+        "inputType": "select",
+        "options": [
+            {
+                "value": "",
+                "friendlyName": "-- None --"
+            },
+            {
+                "value": "1",
+                "friendlyName": "1 - High"
+            },
+            {
+                "value": "2",
+                "friendlyName": "2 - Medium"
+            },
+            {
+                "value": "3",
+                "friendlyName": "3 - Low"
+            }
+        ]
+    },
+    {
+        "el": "incident.u_preferred_contact_method_impacted_user",
+        "inputType": "select",
+        "options": [
+            {
+                "value": "",
+                "friendlyName": "-- None --"
+            },
+            {
+                "value": "chat",
+                "friendlyName": "Chat"
+            },
+            {
+                "value": "email",
+                "friendlyName": "Email"
+            },
+            {
+                "value": "phone",
+                "friendlyName": "Phone"
+            }
+        ]
+    },
+    {
+        "el": "incident.u_preferred_contact_number_impacted_user",
+        "friendlyName": "Preferred contact number(Impacted user)",
+        "inputType": "select",
+        "options": [
+            {
+                "value": "",
+                "friendlyName": "-- None --"
+            }
+        ]
+    },
+    {
+        "el": "incident.category",
+        "inputType": "select",
+        "options": [
+            {
+                "value": "",
+                "friendlyName": "-- None --"  
+            },
+            {
+                "value": "Retail",
+                "friendlyName": "Retail"
+            }
+        ]
+    },
+    {
+        "el": "incident.short_description",
+        "friendlyName": "Short Description",
+        "inputType": "input"
+    },
+    {
+        "el": "incident.work_notes",
+        "friendlyName": "Work Notes",
+        "inputType": "input"
+    },
+    {
+        "el": "incident.description",
+        "friendlyName": "Description",
+        "inputType": "input"
+    }
+]

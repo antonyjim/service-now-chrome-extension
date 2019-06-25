@@ -1,0 +1,46 @@
+[
+    {
+        "el": "",
+        "friendlyName": "-- None --"
+    },
+    {
+        "el": "incident.contact_type",
+        "friendlyName": "Intake Contact type"
+    },
+    {
+        "el": "incident.u_preferred_contact_method_caller",
+        "friendlyName": "Preferred Contact Method (Caller)"
+    },
+    {
+        "el": "incident.impact",
+        "friendlyName": "Impact"
+    },
+    {
+        "el": "incident.urgency",
+        "friendlyName": "Urgency"
+    },
+    {
+        "el": "incident.u_preferred_contact_method_impacted_user",
+        "friendlyName": "Preferred Contact Method(Impacted User)"
+    },
+    {
+        "el": "incident.u_preferred_contact_number_impacted_user",
+        "friendlyName": "Preferred contact number(Impacted user)"
+    },
+    {
+        "el": "incident.category",
+        "friendlyName": "Category"
+    },
+    {
+        "el": "incident.short_description",
+        "friendlyName": "Short Description"
+    },
+    {
+        "el": "incident.work_notes",
+        "friendlyName": "Work Notes"
+    },
+    {
+        "el": "incident.description",
+        "friendlyName": "Description"
+    }
+]

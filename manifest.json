@@ -1,0 +1,69 @@
+{
+    "name": "ServiceNow General Improvements",
+    "version": "1.59.1",
+    "short_name": "ServiceNow Improvements",
+    "description": "Bring general improvements to ServiceNow",
+    "permissions": ["declarativeContent", "storage", "tabs"],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://goodyeardev.service-now.com/nav_to.do*", 
+                "https://goodyeardev.service-now.com/navpage.do*",
+                "https://goodyeartest.service-now.com/navpage.do*",
+                "https://goodyeartest.service-now.com/nav_to.do*",
+                "https://goodyear.service-now.com/navpage.do*",
+                "https://goodyear.service-now.com/nav_to.do*"
+            ],
+            "run_at": "document_start",
+            "css": ["sn/style.css"],
+            "js": ["sn/tabs.js"]
+        },
+        {
+            "matches": [
+                "https://goodyeardev.service-now.com/incident.do*",
+                "https://goodyeartest.service-now.com/incident.do*",
+                "https://goodyear.service-now.com/incident.do*"
+            ],
+            "run_at": "document_start",
+            "all_frames": true,
+            "css": ["sn/style.css"],
+            "js": ["sn/fcr.js"]
+        },
+        {
+            "matches": [
+                "https://goodyeardev.service-now.com/*",
+                "https://goodyeartest.service-now.com/*",
+                "https://goodyear.service-now.com/*"
+            ],
+            "run_at": "document_idle",
+            "js": ["sn/openInTab.js"]
+        },
+        {
+            "matches": ["*://*.tire-hq.com/*"],
+            "run_at": "document_start",
+            "all_frames": true,
+            "css": ["sn/style.css"],
+            "js": ["thq/contentScript.js"]
+        }
+    ],
+    "background": {
+        "scripts": ["backgroundScript.js"],
+        "persistent": true
+    },
+    "page_action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "icon16.png",
+            "32": "icon32.png",
+            "64": "icon64.png",
+            "128": "icon128.png"
+        }
+    },
+    "icons": {
+        "16": "icon16.png",
+        "32": "icon32.png",
+        "64": "icon64.png",
+        "128": "icon128.png"
+    },
+    "manifest_version": 2
+}

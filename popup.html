@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      * {
+        font-family: helvetica;
+        font-size: 14px;
+        padding: 0;
+        margin: 0;
+      }
+
+      input, select, textarea {
+        margin: 4px;
+        padding: 2px;
+        border-radius: 3px;
+        border: solid 1px #949292bd;
+      }
+
+      input:focus, select:focus, textarea:focus {
+          border: solid 1px #2196F3;
+          box-shadow: 0px 0px 5px 0px #2196F3;
+          transition: .3s;
+      }
+
+      input[readonly], select[readonly], textarea[readonly] {
+        background: #eeeeee;
+      }
+      
+      input[readonly]:hover, select[readonly]:hover, textarea[readonly]:hover {
+        cursor: default;
+      }
+
+      body {
+        width: 350px;
+        margin: 5px;
+      }
+
+      .options-box {
+        padding: 8px 3px;
+      }
+      .btn {
+        margin: 4px auto;
+        font-weight: 300;
+        color: white;
+        outline: none;
+        border: none;
+        padding: 4px;
+        background: #2196f3;
+      }
+      .btn:hover {
+        background: #1868a8;
+      }
+      .btn[disabled] {
+        background: #addbff;
+      }
+      .btn[disabled]:hover {
+        background: #addbff;
+      }
+      .input-container {
+        border: solid 1px #c6c6c6;
+        box-shadow: -1px 1px 6px #c6c6c6;
+        border-radius: 5px;
+        width: 92%;
+        margin: 3px auto;
+      }
+
+      .input-container > label {
+        display: block;
+        background: rgb(224, 224, 224);
+        padding: 4px;
+      }
+
+      .input-container > div {
+        padding: 5px;
+      }
+
+      .inline-inputs input, .inline-inputs select {
+          display: inline-block;
+          width: 45%;
+          margin: 4px 2px;
+      }
+
+      .input-sm {
+        text-align: center;
+        width: 1.8em;
+      }
+
+      .tabbed-ui {
+        display: none;
+      }
+
+      .tabbed-ui.active {
+        display: block;
+      }
+
+      .tabbed-ui-tab {
+        cursor: pointer;
+        border-radius: 4px 4px 0 0;
+        border-top: solid #606468 2px;
+        border-left: solid #8888a5 1px;
+        border-right: solid #8888a5 1px;
+        margin: 2px;
+        padding: 3px;
+        background: #d4d4d4;
+      }
+
+      .tabbed-ui-tab:hover {
+        border-top: solid #145b96 2px;
+        cursor:pointer;
+      }
+
+      .tabbed-ui-tab.active {
+        cursor: default;
+        border-top: solid #145b96 2px;
+        background: white;
+        border-bottom: solid white 2px;
+      }
+
+      .tabbed-ui-tab.active:hover {
+        cursor: normal;
+      }
+
+      .tabbed-ui-tab-container {
+            border-bottom: solid 2px;
+            padding-bottom: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <a href="/search.html" target="_blank">Search</a> -->
+    <div class="container">
+      <div class="tabbed-ui-tab-container">
+        <span class="tabbed-ui-tab active" data-for="generalSettings">
+          General 
+        </span>
+        <span class="tabbed-ui-tab" data-for="autoSelections">      
+          Auto-Selects
+        </span>
+        <span class="tabbed-ui-tab" data-for="tabbedSettings">
+          Advanced
+        </span>
+        <span class="tabbed-ui-tab" data-for="thqLogin" id="thqTab" style="display: none;">
+            THQ Login
+        </span>
+      </div>
+      <div class="tabbed-ui active" id="generalSettings">
+        <div class="options-box">
+            <div class="input-container">
+                  <label for="enabledOn">
+                  Enable For
+                  </label>
+                  <div>
+                    <label for="goodyeardev.service-now.com">
+                        Development
+                    </label>
+                    <input class="enable" type="checkbox" id="goodyeardev.service-now.com">
+                    <label for="goodyeartest.service-now.com">
+                        Test
+                    </label>
+                    <input class="enable" type="checkbox" id="goodyeartest.service-now.com">
+                    <label for="goodyear.service-now.com">
+                        Production
+                    </label>
+                    <input class="enable" type="checkbox" id="goodyear.service-now.com">
+                  </div>
+           </div>
+           <div class="input-container">
+            <label for="usersAssignmentGroup">
+              Your assignment group
+            </label>
+            <div>
+              <select id="assignmentGroupsToChooseFrom">
+                <option value="">None</option>
+              </select>
+            </div>
+          </div>
+           <div class="input-container">
+            <label>
+            New Tab Behavior
+            </label>
+            <div>
+              <label for="tabsEnabled">Enable Tabs</label>
+              <input id="tabsEnabled" class="toggle" type="checkbox"><br>
+                <label for="newTabBehavior">
+                When I open a new tab, bring me to:
+                </label>
+                <select id="newTabBehavior" disabled="disabled">
+                  <option value="/incident.do?sys_id=-1"> New Incident </option>
+                  <option value="/incident_list.do"> Incident List </option>
+                  <option value="/incident_list.do?sysparm_query=active%3Dtrue%5Eassigned_to%3Djavascript:getMyAssignments()%5Estate!%3D6&sysparm_first_row=1&sysparm_view="> My Tickets </option>
+                  <option value="/incident_list.do?sysparm_clear_stack=true&sysparm_first_row=1&sysparm_query=state%3D1%5EORstate%3D2%5EORstate%3D4%5Eactive%3Dtrue%5Eassignment_group%3Djavascript:getMyGroups()&sysparm_view="> My Group's Tickets </option>
+                </select>
+            </div>
+           </div>
+        </div>
+      </div>
+      <div class="tabbed-ui" id="autoSelections">
+            <div class="options-box">
+               <div class="input-container inline-inputs">
+                  <label for="defaulted-fields">
+                  Default Fields
+                  </label>
+                  <div>
+                    <button role="button" class="btn" id="addDefaultField">Add Field</button>
+                    <button role="button" class="btn" id="updateDefaultFields">Update Defaults</button>
+                  </div>
+                </div>
+            </div>
+      </div>
+      <div class="tabbed-ui" id="tabbedSettings">
+        <div class="options-box">
+          <div class="input-container">
+            <label for="assignmentGroups">
+              Assignment Groups:
+            </label>
+            <div>
+              <div id="assignmentList">
+                <button class="btn" role="button" id="addAssignmentGroup">Add Assignment Group</button>
+                <button class="btn" role="button" id="updateAssignmentGroups">Update Groups</button>
+              </div>
+            </div>
+            <div>
+              <input type="checkbox" id="thqLoginEnabled">
+              <label for="thqLoginEnabled">Enable THQ Login</label>
+              <br/>
+              <input type="checkbox" class="toggle" id="hideSuggestions">
+              <label for="hideSuggestions">Hide suggestions</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tabbed-ui" id="thqLogin">
+          <div class="options-box">
+            <div class="input-container">
+              <label>
+                General Settings
+              </label>
+              <div>
+                  <label for="THQLoginEnabled">THQ Login Enabled</label>
+                  <input type="checkbox" id="THQLoginEnabled" value="THQLogin"><br>
+                  <label for="resultCount">Results to fetch</label>
+                  <input class="input-sm" type="text" id="resultCount" type="text"> <br>
+                  <span id="addrStatus" style="visibility:hidden;"></span><br>
+                  <label for="serverAddr">Powershell Server</label>
+                  <input id="serverAddr" type="text">
+  
+                  <span id="isLNReady"></span> <br/>
+                  <label for="lnPassword">Lotus Notes Password</label><br>
+                  <input type="password" id="lnPassword" type="text">
+                  <button role="button" class="btn" id="initialize">Initialize Notes</button>
+                  <button id="stopServer" class="btn">Stop PS Server</button>
+              </div>
+            </div>
+  
+          </div>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>
